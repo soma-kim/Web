@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 안녕 나는 xml 파일 형식이야~! -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<!-- xml 문법에 맞는지 유효성 검사해 주는 태그 -->
+
+<!-- 
+	* web.xml 파일
+	- 배포 서술자(DD, Deployment Descriptor) 라고 해서 해당 웹 애플리케이션의 기본적인 설정을 위해 작성하는 파일
+	- 해당 웹 애플리케이션을 구동하는 서버가 start(구동) 시 제일 먼저 읽혀지는 파일이기 때문에 설정값을 지정하는 파일이 됨
+	- 개발자가 web.xml 파일을 수정하지 않고도 개발 및 운영이 가능하나
+	   프로젝트의 규모가 커지고 다양한 Filter, Servlet 등을 사용하게 되면 직접 수정해야 하는 경우가 생길 수도 있음
+ -->
+
+  <display-name>1_Servlet</display-name> <!-- 내 프로젝트 이름 -->
+  
+  <!-- 
+  	* welcome-file: 처음에 url로 해당 이 웹 애플리케이션 루트(== 메인 == Context Root)로 요청 시
+  					제일 먼저 보여지게 되는 메인 페이지를 지정해 놓은 것
+  					http://localhost:8888/1_Servlet
+					=> 각자 본인 컴퓨터에 구축해 놓은 서버의 IP 주소를 요청: localhost == 127.0.0.1
+					=> 서버의 포트 번호 : 설정해 놓은 8888
+					=> 서버 내의 구동 중인 Context Root: 1_Servlet
+									(한 서버에 여러 개의 프로젝트가 올라갈 수 있음 - 프로젝트 구분 용도)
+					단, 해당 파일은 WebContent / 폴더 안에 바로 위치해 있어야만 함!
+   -->
+  <welcome-file-list> <!-- 니가 메인 페이지 띄웠을 때, 메인 페이지 이름은 적어도 얘네들 중 하나로 설정해 줘야 돼! -->
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
