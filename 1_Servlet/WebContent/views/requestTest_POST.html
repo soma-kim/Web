@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	ul {
+		list-style-type : none;
+		line-height : 200%;
+	}
+</style>
+</head>
 </head>
 <body>
 
@@ -22,6 +29,55 @@
 		
 		특징 4. 최대 요청 받는 시간(Time out)이 존재해 페이지 요청 시 기다리는 시간이 있음
 	</p>
+	
+	<hr> <!-- form은 get 방식에서 그대로 복사해 옴 -->
+	
+	<!-- 
+		현재 이 페이지의 주소: http://localhost:8888/1_Servlet/views/requestTest_POST.html
+		submit 버튼을 클릭했을 때 요청하고자 하는 주소: http://localhost:8888/1_Servlet/test2.do
+		
+		상대 경로 방식 action: ../test2.do
+						만약 그냥 test2.do라고 쓴다면 localhost:8888/1_Servlet/views/test2.do => 404 오류 남
+		절대 경로 방식 action: /1_Servlet/test2.do
+		
+	 -->
+	<form action="/1_Servlet/test2.do" method="post"> <!-- ../ : 한 겹 빠져 나가겠다 -->
+	<!-- 여기서 post방식으로 넘겼기 때문에 RequestPostServlet의 doPost 메소드를 호출할 것 -->
+		<ul>
+			<li>이름: <input type="text" name="name"></li>
+			<!-- input 태그 사용 시 key값은 반드시 넘겨야 함 (name 속성) -->
+			<li>성별:
+				남자 <input type="radio" name="gender" value="M">
+				여자 <input type="radio" name="gender" value="F">
+				<!-- radio의 경우 같은 묶음으로 묶어 줄 경우에는 name 속성을 동일하게 지정 -->
+			</li>
+			<li>나이: <input type="number" name="age"></li>
+			<li>사는 도시:
+				<select name="city">
+					<option>서울시</option> <!-- option value 값을 적지 않으면 태그 사이 값이 자동으로 value로 넘어감 -->
+					<option>경기도</option>
+					<option>강원도</option>
+					<option>충청도</option>
+					<option selected>경상도</option>
+					<option>전라도</option>
+				</select>
+			</li>
+			<li>키: <input type="range" name="height" min="140" max="200"></li>
+			<li>좋아하는 음식(모두 고르시오):
+				햄버거 <input type="checkbox" name="food" value="햄버거">
+				만두 <input type="checkbox" name="food" value="만두">
+				떡볶이 <input type="checkbox" name="food" value="떡볶이">
+				샐러드 <input type="checkbox" name="food" value="샐러드">
+				건포도라지무침 <input type="checkbox" name="food" value="건포도라지무침">
+				<!-- checkbox의 경우 같은 묶음으로 묶어 줄 경우에는 name 속성을 동일하게 지정
+					 여러 개의 선택지 중에서 여러 개 선택 가능 -->
+			</li>
+			<li>
+				<input type="submit">
+				<input type="reset">
+			</li>
+		</ul>
+	</form>
 
 </body>
 </html>
