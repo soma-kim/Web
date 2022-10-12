@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <th>전화번호</th>
-                    <td><input type="text" name="phone" placeholder="-제외"></td>
+                    <td><input type="text" name="phone" placeholder="-제외" required></td>
                 </tr>
                 <tr>
                     <th>주소</th>
