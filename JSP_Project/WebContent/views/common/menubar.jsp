@@ -53,7 +53,14 @@
     <div class="lonin-area">
         <!-- 로그인 전에 보여지는 로그인 form -->
         <!-- action 값은 로그인 화면 처리 기능 만든 후 url 넣을 예정 -->
-        <form id="login-form" action="" method="post">
+        <!-- 
+        	현재 나의 위치: http://localhost:8888/jsp/
+        	로그인 버튼을 클릭했을 때 이동하고자 하는 위치: http://localhost:8888/jsp/login.me
+        	
+        	절대경로: /jsp/login.me
+        	상대경로(마지막 슬래시 기준 문구가 붙는 것):login.me 
+         -->
+        <form id="login-form" action="/jsp/login.me" method="post">
 
             <table>
                 <tr>

@@ -45,9 +45,9 @@ public class JDBCTemplate {
 			Class.forName(prop.getProperty("driver"));
 			
 			// 2) DB와 접속된 Connection 객체를 생성
-			conn = DriverManager.getConnection("prop.getProperty(url)"
-												, "prop.getProperty(username)"
-												, "prop.getProperty(password)");
+			conn = DriverManager.getConnection(prop.getProperty("url")
+												, prop.getProperty("username")
+												, prop.getProperty("password"));
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
