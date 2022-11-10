@@ -352,5 +352,17 @@
 		- 넘겨야 할 쿼리스트링이 길 경우 사용하면 편함
 	</pre>
 	
+	<a href="list.do?cPage=1&num1=2&city=서울&name=홍길동"></a> <br>
+	
+	<!-- url, param 태그를 이용한 방식 -->
+	<c:url var="query" value="list.do">
+		<c:param name="cPage" value="1" />
+		<c:param name="cPage" value="2" />
+		<c:param name="cPage" value="서울" />
+		<c:param name="cPage" value="홍길동" />
+	</c:url>
+	
+	<a href="${ query }">c:url을 이용한 방식</a>
+	
 </body>
 </html>
