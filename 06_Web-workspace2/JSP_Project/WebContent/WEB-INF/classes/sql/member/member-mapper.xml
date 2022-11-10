@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="loginMember">
+		SELECT *
+		FROM MEMBER
+		WHERE USER_ID = ?
+		  AND USER_PWD = ?
+		  AND STATUS = 'Y'
+	</entry>
+		
+	<!--
+		선택적 INSERT 구문 쓸 것!
+		USER_NO: 시퀀스로 딸 것
+		ENROLL_DATE, MODIFY_DATE, STATUS: 기본값 사용
+	-->
+		
+	<entry key="insertMember">
+		INSERT INTO MEMBER(USER_NO
+						 , USER_ID
+						 , USER_PWD
+						 , USER_NAME
+						 , PHONE
+						 , EMAIL
+						 , ADDRESS
+						 , INTEREST)
+					VALUES(SEQ_UNO.NEXTVAL
+						 , ?
+						 , ?
+						 , ?
+						 , ?
+						 , ?
+						 , ?
+						 , ?)
+	</entry>
+	
+	<entry key="updateMember">
+		UPDATE MEMBER
+			SET USER_NAME = ?
+			  , PHONE = ?
+			  , EMAIL = ?
+			  , ADDRESS = ?
+			  , INTEREST = ?
+			  , MODIFY_DATE = SYSDATE
+			WHERE USER_ID = ?
+	</entry>
+	
+	<!-- 업데이트 된 유저 정보를 가지고 오기 위한 쿼리문 -->
+	<entry key="selectMember">
+		SELECT *
+		FROM MEMBER
+		WHERE USER_ID = ?
+			AND STATUS = 'Y'
+	</entry>
+	
+	<entry key="updatePwdMember">
+		UPDATE MEMBER
+			SET USER_PWD = ?
+			  , MODIFY_DATE = SYSDATE
+		  WHERE USER_ID = ?
+		  	AND USER_PWD = ?
+	</entry>
+	
+	<entry key="deleteMember">
+		UPDATE MEMBER
+			SET STATUS = 'N'
+			  , MODIFY_DATE = SYSDATE
+		WHERE USER_ID = ?
+			AND USER_PWD = ?
+	</entry>
+	
+	<entry key="idCheck">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE USER_ID = ?
+	</entry>
+
+</properties>
